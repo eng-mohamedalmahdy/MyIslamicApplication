@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/quran_yellow"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.quran.soralist.IndexListFragment">
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:orientation="vertical"
+        tools:listitem="@layout/list_item_sora"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:id="@+id/sora_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</FrameLayout>
