@@ -6,6 +6,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myisamlicapplication.R;
@@ -15,7 +17,12 @@ import java.util.ArrayList;
 
 public class QuranSearchAdapter extends RecyclerView.Adapter<QuranSearchAdapter.ViewHolder> {
 
-    ArrayList<Aya> ayat;
+   private ArrayList<Aya> ayat;
+   private Fragment fragment;
+
+    public QuranSearchAdapter(Fragment fragment) {
+        this.fragment = fragment;
+    }
 
     @NonNull
     @Override
@@ -55,6 +62,9 @@ public class QuranSearchAdapter extends RecyclerView.Adapter<QuranSearchAdapter.
             ayaNo.setText(String.valueOf(aya.getAya_no()));
             soraName.setText(aya.getSora_name_ar());
             ayaContent.setText(aya.getAya_text());
+            itemView.setOnClickListener(v->{
+                NavHostFragment.findNavController(fragment).navigate(QuranSearchFragmentDirections.actionQuranSearchFragmentToQuranFragment(aya.getPage()));
+            });
         }
     }
 }

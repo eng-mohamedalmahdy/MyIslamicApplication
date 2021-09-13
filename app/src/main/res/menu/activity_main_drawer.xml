@@ -5,9 +5,15 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_quran"
-            android:icon="@drawable/ic_menu_camera"
+            android:id="@+id/quranIndexFragment"
+            android:icon="@drawable/ic_quran"
             android:title="@string/menu_quran" />
+
+        <item
+            android:id="@+id/azkarHomeFragment"
+            android:icon="@drawable/ic_star"
+            android:title="@string/menu_azkar" />
+
 
     </group>
 </menu>

@@ -6,12 +6,11 @@
     app:startDestination="@id/quranIndexFragment">
 
 
-
     <fragment
         android:id="@+id/quranFragment"
         android:name="com.example.myisamlicapplication.ui.quran.quranContainer.QuranContainerFragment"
         android:label="fragment_quran"
-        tools:layout="@layout/fragment_page_quran" >
+        tools:layout="@layout/fragment_page_quran">
         <argument
             android:name="startPage"
             app:argType="integer" />
@@ -19,15 +18,10 @@
 
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.myisamlicapplication.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
-    <fragment
         android:id="@+id/quranIndexFragment"
         android:name="com.example.myisamlicapplication.ui.quran.quranindex.QuranIndexFragment"
         android:label="fragment_quran_index"
-        tools:layout="@layout/fragment_quran_index" >
+        tools:layout="@layout/fragment_quran_index">
 
         <action
             android:id="@+id/action_quranIndex_to_quranFragment"
@@ -43,7 +37,30 @@
         android:id="@+id/quranSearchFragment"
         android:name="com.example.myisamlicapplication.ui.quran.quranSearch.QuranSearchFragment"
         android:label="fragment_quran_search"
-        tools:layout="@layout/fragment_quran_search" />
+        tools:layout="@layout/fragment_quran_search">
+        <action
+            android:id="@+id/action_quranSearchFragment_to_quranFragment"
+            app:destination="@id/quranFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/azkarHomeFragment"
+        android:name="com.example.myisamlicapplication.ui.azkar.azkarHome.AzkarHomeFragment"
+        android:label="fragment_azkar_home"
+        tools:layout="@layout/fragment_azkar_home">
+        <action
+            android:id="@+id/action_azkarHomeFragment_to_azkarListFragment"
+            app:destination="@id/azkarListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/azkarListFragment"
+        android:name="com.example.myisamlicapplication.ui.azkar.azkarList.AzkarListFragment"
+        android:label="fragment_azkar_list"
+        tools:layout="@layout/fragment_azkar_list">
+        <argument
+            android:name="azkarType"
+            app:argType="string"
+            app:nullable="false" />
+    </fragment>
 
 
 </navigation>

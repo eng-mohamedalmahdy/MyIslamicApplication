@@ -35,7 +35,7 @@ public class QuranSearchFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        adapter = new QuranSearchAdapter();
+        adapter = new QuranSearchAdapter(this);
         viewModel = new QuranSearchViewModel();
     }
 
