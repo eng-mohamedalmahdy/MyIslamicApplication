@@ -13,7 +13,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.myisamlicapplication.R;
 import com.example.myisamlicapplication.data.pojo.Aya;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class QuranSearchAdapter extends RecyclerView.Adapter<QuranSearchAdapter.ViewHolder> {
 
@@ -58,8 +60,10 @@ public class QuranSearchAdapter extends RecyclerView.Adapter<QuranSearchAdapter.
         }
 
         public void bind(Aya aya) {
-            soraNo.setText(String.valueOf(aya.getSora()));
-            ayaNo.setText(String.valueOf(aya.getAya_no()));
+            NumberFormat nf= NumberFormat.getInstance(new Locale("ar","EG"));
+
+            soraNo.setText(nf.format(aya.getSora()));
+            ayaNo.setText(nf.format(aya.getAya_no()));
             soraName.setText(aya.getSora_name_ar());
             ayaContent.setText(aya.getAya_text());
             itemView.setOnClickListener(v->{

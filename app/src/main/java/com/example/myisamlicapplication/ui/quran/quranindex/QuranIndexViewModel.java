@@ -4,13 +4,13 @@ import com.example.myisamlicapplication.data.utils.IndexTabsUtils;
 
 public class QuranIndexViewModel {
 
-    private String[] tabsList;
+    private int[] tabsList;
 
     public QuranIndexViewModel() {
         tabsList = IndexTabsUtils.QURAN_INDEX_TABS;
     }
 
-    public String getTabAt(int position) {
+    public int getTabAt(int position) {
         return tabsList[position];
     }
 

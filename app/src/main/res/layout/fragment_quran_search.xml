@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/quran_yellow"
+    android:orientation="vertical"
     tools:context=".ui.quran.quranSearch.QuranSearchFragment">
 
     <LinearLayout
@@ -25,9 +25,13 @@
             app:cardCornerRadius="25dp">
 
             <EditText
+                android:textDirection="rtl"
+                android:layout_margin="8dp"
                 android:id="@+id/search_quran_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginStart="16dp"
+                android:background="@null"
                 android:drawableStart="@drawable/ic_baseline_search_24"
                 android:drawablePadding="12dp" />
         </androidx.cardview.widget.CardView>
@@ -36,11 +40,11 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:orientation="vertical"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/list_item_quran_search"
         android:id="@+id/quran_search_result"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/list_item_quran_search" />
 
 </LinearLayout>

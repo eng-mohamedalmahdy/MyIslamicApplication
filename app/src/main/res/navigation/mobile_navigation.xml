@@ -9,7 +9,7 @@
     <fragment
         android:id="@+id/quranFragment"
         android:name="com.example.myisamlicapplication.ui.quran.quranContainer.QuranContainerFragment"
-        android:label="fragment_quran"
+        android:label="@string/holy_quran"
         tools:layout="@layout/fragment_page_quran">
         <argument
             android:name="startPage"
@@ -20,7 +20,7 @@
     <fragment
         android:id="@+id/quranIndexFragment"
         android:name="com.example.myisamlicapplication.ui.quran.quranindex.QuranIndexFragment"
-        android:label="fragment_quran_index"
+        android:label="@string/quran_index"
         tools:layout="@layout/fragment_quran_index">
 
         <action
@@ -33,28 +33,31 @@
             android:id="@+id/action_quranIndexFragment_to_quranSearchFragment2"
             app:destination="@id/quranSearchFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/quranSearchFragment"
         android:name="com.example.myisamlicapplication.ui.quran.quranSearch.QuranSearchFragment"
-        android:label="fragment_quran_search"
+        android:label="@string/quran_search"
         tools:layout="@layout/fragment_quran_search">
         <action
             android:id="@+id/action_quranSearchFragment_to_quranFragment"
             app:destination="@id/quranFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/azkarHomeFragment"
         android:name="com.example.myisamlicapplication.ui.azkar.azkarHome.AzkarHomeFragment"
-        android:label="fragment_azkar_home"
+        android:label="@string/azkar_list"
         tools:layout="@layout/fragment_azkar_home">
         <action
             android:id="@+id/action_azkarHomeFragment_to_azkarListFragment"
             app:destination="@id/azkarListFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/azkarListFragment"
         android:name="com.example.myisamlicapplication.ui.azkar.azkarList.AzkarListFragment"
-        android:label="fragment_azkar_list"
+        android:label="@string/azkar"
         tools:layout="@layout/fragment_azkar_list">
         <argument
             android:name="azkarType"

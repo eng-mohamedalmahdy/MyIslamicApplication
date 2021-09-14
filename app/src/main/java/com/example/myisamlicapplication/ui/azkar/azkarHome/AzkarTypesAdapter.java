@@ -58,7 +58,6 @@ public class AzkarTypesAdapter extends RecyclerView.Adapter<AzkarTypesAdapter.Vi
             zekrImage = itemView.findViewById(R.id.zeker_image);
         }
 
-
         public void bind(ZekrType zekrType) {
             zekrName.setText(zekrType.getZekrName());
             if (zekrType.getZekrImageId() != -1) {

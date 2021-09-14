@@ -21,12 +21,13 @@
         app:cardCornerRadius="25dp">
 
         <EditText
+            android:layout_marginStart="16dp"
+            android:background="@null"
             android:backgroundTint="@null"
             android:id="@+id/search_quran_edit_text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:drawableStart="@drawable/ic_baseline_search_24"
-            android:drawablePadding="12dp"
             android:enabled="true"
             android:focusable="false"
             />

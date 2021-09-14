@@ -7,13 +7,17 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="menu_quran">Quran</string>
-    <string name="to">To</string>
-    <string name="aya_no">Aya No:</string>
-    <string name="menu_azkar">Azkar</string>
+    <string name="menu_quran">القرآن الكريم</string>
+    <string name="to">الى</string>
+    <string name="aya_no">آية رقم</string>
+    <string name="menu_azkar">أذكار</string>
+    <string name="from_page">من صفحة</string>
+    <string name="sora">سورة</string>
+    <string name="jozz">جزء</string>
+    <string name="page">صفحة</string>
+    <string name="holy_quran">القرآن الكريم</string>
+    <string name="quran_index">فهرس المصحف</string>
+    <string name="quran_search">بحث في المصحف</string>
+    <string name="azkar_list">قائمة الأذكار</string>
+    <string name="azkar">الأذكار</string>
 </resources>

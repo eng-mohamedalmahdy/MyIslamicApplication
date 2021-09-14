@@ -54,7 +54,7 @@ public class IndexListAdapter extends RecyclerView.Adapter<IndexListAdapter.View
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView soraNumber, soraName, from, to, wordTo;
+        TextView soraNumber, soraName, from, to, wordTo,wordFrom;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -62,6 +62,7 @@ public class IndexListAdapter extends RecyclerView.Adapter<IndexListAdapter.View
             soraName = itemView.findViewById(R.id.sora_name);
             from = itemView.findViewById(R.id.sora_start);
             to = itemView.findViewById(R.id.sora_end);
+            wordFrom = itemView.findViewById(R.id.word_from);
             wordTo = itemView.findViewById(R.id.word_to);
         }
 
@@ -70,7 +71,7 @@ public class IndexListAdapter extends RecyclerView.Adapter<IndexListAdapter.View
 
             wordTo.setVisibility(View.VISIBLE);
 
-            soraNumber.setText(nf.format(sora.getSoraNumber()));
+            soraNumber.setText((nf.format(sora.getSoraNumber())+"-"));
             soraName.setText(sora.getArabicName());
             from.setText(nf.format(sora.getStartPage()));
             to.setText(nf.format(sora.getEndPage()));
@@ -82,10 +83,10 @@ public class IndexListAdapter extends RecyclerView.Adapter<IndexListAdapter.View
         public void bind(Jozz jozz) {
             NumberFormat nf= NumberFormat.getInstance(new Locale("ar","EG"));
 
-            soraName.setVisibility(View.GONE);
+            soraName.setText((fragment.getString(R.string.jozz)+": "+(nf.format(jozz.getJozzNumber()))));
             wordTo.setVisibility(View.VISIBLE);
 
-            soraNumber.setText(nf.format(jozz.getJozzNumber()));
+            soraNumber.setText("");
             from.setText(nf.format(jozz.getStartPage()));
             to.setText(nf.format(jozz.getEndPage()));
 
@@ -97,12 +98,13 @@ public class IndexListAdapter extends RecyclerView.Adapter<IndexListAdapter.View
         public void bind(Integer page) {
             NumberFormat nf= NumberFormat.getInstance(new Locale("ar","EG"));
 
-            soraName.setVisibility(View.GONE);
+            soraName.setText((fragment.getString(R.string.page)+" : "+(nf.format(page))));
             from.setVisibility(View.GONE);
             to.setVisibility(View.GONE);
             wordTo.setVisibility(View.GONE);
+            wordFrom.setVisibility(View.GONE);
 
-            soraNumber.setText(nf.format(page));
+            soraNumber.setText("");
 
             itemView.setOnClickListener(v -> NavHostFragment
                     .findNavController(fragment)

@@ -3,12 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/quran_green"
     tools:context=".ui.azkar.azkarHome.AzkarHomeFragment">
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/azkar_types_list"
         android:layout_width="match_parent"
+        tools:listitem="@layout/list_item_zekr"
         android:layout_height="match_parent"/>
 
 </FrameLayout>

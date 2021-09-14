@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.text.Editable;
@@ -50,6 +51,7 @@ public class QuranSearchFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         searchEditText = view.findViewById(R.id.search_quran_edit_text);
         searchResultRecyclerView = view.findViewById(R.id.quran_search_result);
+        searchResultRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(),DividerItemDecoration.VERTICAL));
         searchResultRecyclerView.setAdapter(adapter);
         searchEditText.addTextChangedListener(new TextWatcher() {
             @Override
