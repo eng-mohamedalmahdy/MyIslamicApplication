@@ -20,4 +20,6 @@
     <string name="quran_search">بحث في المصحف</string>
     <string name="azkar_list">قائمة الأذكار</string>
     <string name="azkar">الأذكار</string>
+    <string name="menu_prayer_times">مواقيت الصلاة</string>
+    <string name="prayer_times" >مواقيت الصلاة</string>
 </resources>

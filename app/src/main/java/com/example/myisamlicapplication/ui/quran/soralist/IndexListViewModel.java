@@ -1,14 +1,13 @@
 package com.example.myisamlicapplication.ui.quran.soralist;
 
 import android.content.Context;
-import android.util.Range;
 
 import androidx.annotation.NonNull;
 
 import com.example.myisamlicapplication.data.database.QuranDao;
 import com.example.myisamlicapplication.data.database.QuranDatabase;
-import com.example.myisamlicapplication.data.pojo.Jozz;
-import com.example.myisamlicapplication.data.pojo.Sora;
+import com.example.myisamlicapplication.data.pojo.quran.Jozz;
+import com.example.myisamlicapplication.data.pojo.quran.Sora;
 import com.example.myisamlicapplication.data.utils.IndexTabsUtils;
 
 import java.util.ArrayList;

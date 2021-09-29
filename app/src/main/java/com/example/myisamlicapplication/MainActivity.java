@@ -36,8 +36,9 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                 R.id.quranIndexFragment
-                ,R.id.azkarHomeFragment)
+                R.id.quranIndexFragment,
+                R.id.azkarHomeFragment,
+                R.id.prayerTimesFragment)
                 .setOpenableLayout(drawer)
                 .build();
 
@@ -52,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
-
 
 
     @Override

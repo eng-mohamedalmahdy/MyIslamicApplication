@@ -16,9 +16,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 
 import com.example.myisamlicapplication.R;
-import com.example.myisamlicapplication.data.database.QuranDao;
-import com.example.myisamlicapplication.data.database.QuranDatabase;
-import com.example.myisamlicapplication.data.pojo.Aya;
+import com.example.myisamlicapplication.data.pojo.quran.Aya;
 
 import java.util.ArrayList;
 

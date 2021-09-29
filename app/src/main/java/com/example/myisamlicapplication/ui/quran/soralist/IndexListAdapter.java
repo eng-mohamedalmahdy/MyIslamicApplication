@@ -11,8 +11,8 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myisamlicapplication.R;
-import com.example.myisamlicapplication.data.pojo.Jozz;
-import com.example.myisamlicapplication.data.pojo.Sora;
+import com.example.myisamlicapplication.data.pojo.quran.Jozz;
+import com.example.myisamlicapplication.data.pojo.quran.Sora;
 import com.example.myisamlicapplication.ui.quran.quranindex.QuranIndexFragmentDirections;
 
 import java.text.NumberFormat;

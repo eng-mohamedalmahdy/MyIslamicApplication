@@ -11,7 +11,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myisamlicapplication.R;
-import com.example.myisamlicapplication.data.pojo.Aya;
+import com.example.myisamlicapplication.data.pojo.quran.Aya;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;

@@ -10,9 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myisamlicapplication.R;
-import com.example.myisamlicapplication.data.pojo.Zekr;
-import com.example.myisamlicapplication.data.pojo.ZekrType;
-import com.example.myisamlicapplication.ui.azkar.azkarHome.AzkarTypesAdapter;
+import com.example.myisamlicapplication.data.pojo.azkar.Zekr;
 
 import java.util.ArrayList;
 

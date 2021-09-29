@@ -3,7 +3,7 @@ package com.example.myisamlicapplication.ui.azkar.azkarList;
 import android.content.Context;
 
 import com.example.myisamlicapplication.data.azkarProvider.AzkarProvider;
-import com.example.myisamlicapplication.data.pojo.Zekr;
+import com.example.myisamlicapplication.data.pojo.azkar.Zekr;
 
 import java.util.ArrayList;
 

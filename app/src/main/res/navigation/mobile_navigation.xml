@@ -64,6 +64,11 @@
             app:argType="string"
             app:nullable="false" />
     </fragment>
+    <fragment
+        android:id="@+id/prayerTimesFragment"
+        android:name="com.example.myisamlicapplication.ui.prayertimes.prayertimeshome.PrayerTimesFragment"
+        android:label="@string/prayer_times"
+        tools:layout="@layout/fragment_prayer_times" />
 
 
 </navigation>

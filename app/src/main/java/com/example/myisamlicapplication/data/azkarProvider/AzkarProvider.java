@@ -4,12 +4,10 @@ import android.content.Context;
 
 import androidx.annotation.NonNull;
 
-import com.example.myisamlicapplication.data.pojo.Zekr;
-import com.example.myisamlicapplication.data.pojo.ZekrType;
+import com.example.myisamlicapplication.data.pojo.azkar.Zekr;
+import com.example.myisamlicapplication.data.pojo.azkar.ZekrType;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
-import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,7 +15,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 public class AzkarProvider {

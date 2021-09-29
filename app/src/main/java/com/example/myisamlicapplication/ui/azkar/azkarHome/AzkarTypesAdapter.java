@@ -12,7 +12,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myisamlicapplication.R;
-import com.example.myisamlicapplication.data.pojo.ZekrType;
+import com.example.myisamlicapplication.data.pojo.azkar.ZekrType;
 
 import java.util.ArrayList;
 import java.util.HashSet;
