@@ -22,3 +22,12 @@
 ![Azkar list](https://user-images.githubusercontent.com/49305252/135629120-d7802387-397a-45ff-a230-b233ad3354a4.png) ![Azkar](https://user-images.githubusercontent.com/49305252/135629181-53f614db-b4a4-4b9e-8f58-d4f8c727aad3.png)
 
 ![Prayer times](https://user-images.githubusercontent.com/49305252/135629350-89369ea0-81e1-418b-a5a1-3d73d86ff723.png)
+
+
+**Resources**
+
+
+Quran database: **https://qurancomplex.gov.sa/en/techquran/dev/**
+  
+  
+Prayers Azan API: **https://aladhan.com/** 
