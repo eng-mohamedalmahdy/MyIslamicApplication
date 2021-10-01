@@ -3,7 +3,7 @@
 **Islamic application contains:**
 
 * Quran
-* rayer azan
+* Prayer azan
 * Azkar 
 * Qibla finder
 
