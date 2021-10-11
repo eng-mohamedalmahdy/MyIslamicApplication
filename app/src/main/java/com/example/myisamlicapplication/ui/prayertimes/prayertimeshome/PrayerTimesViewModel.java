@@ -14,6 +14,8 @@ import com.example.myisamlicapplication.data.pojo.prayertimes.City;
 import com.example.myisamlicapplication.data.pojo.prayertimes.PrayerTimesResponse;
 import com.example.myisamlicapplication.data.pojo.prayertimes.PrayerTiming;
 import com.example.myisamlicapplication.data.pojo.prayertimes.Timings;
+import com.example.myisamlicapplication.data.prayernotifications.AzanPrayerUtils;
+import com.example.myisamlicapplication.data.prayernotifications.PrayersPreferences;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -89,7 +91,12 @@ public class PrayerTimesViewModel extends ViewModel {
         return prayerTimingMethods;
     }
 
-    public void setPrayerTimings(City city, int method, int day, int month, int year) {
+    public void setPrayerTimings(Context context, City city, int method, int day, int month, int year) {
+        PrayersPreferences preferences = new PrayersPreferences(context);
+        preferences.setCity(city.getName());
+        preferences.setCountry(city.getCountry());
+        preferences.setMethod(method);
+
         getPrayers(city.getCountry(),
                 city.getName(),
                 method,
@@ -98,6 +105,8 @@ public class PrayerTimesViewModel extends ViewModel {
             @Override
             public void onResponse(Call<PrayerTimesResponse> call, Response<PrayerTimesResponse> response) {
                 Timings timings = response.body().getData().get(day - 1).getTimings();
+                AzanPrayerUtils.registerPrayers(context.getApplicationContext());
+
                 ArrayList<PrayerTiming> prayers = convertFromTimings(timings);
                 prayerTimings.setValue(prayers);
             }

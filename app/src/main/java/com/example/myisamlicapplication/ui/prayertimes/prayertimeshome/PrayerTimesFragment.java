@@ -69,7 +69,7 @@ public class PrayerTimesFragment extends Fragment {
                     if (viewModel.getCurrentCity().getValue() != null
                             && viewModel.getCurrentPrayerCalculatingMethod().getValue() != null) {
                         viewModel.
-                                setPrayerTimings(viewModel.getCurrentCity().getValue(),
+                                setPrayerTimings(getContext(), viewModel.getCurrentCity().getValue(),
                                         viewModel.getCurrentPrayerCalculatingMethod().getValue(),
                                         dayOfMonth,
                                         monthOfYear,
@@ -99,7 +99,7 @@ public class PrayerTimesFragment extends Fragment {
 
         viewModel.getCurrentCity().observe(getViewLifecycleOwner(), city -> {
             if (viewModel.getCurrentPrayerCalculatingMethod().getValue() != null)
-                viewModel.setPrayerTimings(city,
+                viewModel.setPrayerTimings(getContext(), city,
                         viewModel.getCurrentPrayerCalculatingMethod().getValue(),
                         datePicker.getDayOfMonth(),
                         datePicker.getMonth(),
@@ -107,12 +107,13 @@ public class PrayerTimesFragment extends Fragment {
         });
 
         viewModel.getCurrentPrayerCalculatingMethod().observe(getViewLifecycleOwner(), prayerMethod -> {
-            if (viewModel.getCurrentCity().getValue() != null) viewModel.setPrayerTimings(
-                    viewModel.getCurrentCity().getValue(),
-                    prayerMethod,
-                    datePicker.getDayOfMonth(),
-                    datePicker.getMonth(),
-                    datePicker.getYear());
+            if (viewModel.getCurrentCity().getValue() != null)
+                viewModel.setPrayerTimings(getContext(),
+                        viewModel.getCurrentCity().getValue(),
+                        prayerMethod,
+                        datePicker.getDayOfMonth(),
+                        datePicker.getMonth(),
+                        datePicker.getYear());
         });
         viewModel.getPrayerTimingMethods().observe(getViewLifecycleOwner(),
                 prayerTimingsMethods ->
