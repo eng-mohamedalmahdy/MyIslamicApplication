@@ -5,8 +5,8 @@ import android.view.View;
 import android.view.Menu;
 
 import com.example.myisamlicapplication.data.database.QuranDatabase;
-import com.example.myisamlicapplication.data.prayernotifications.AzanPrayerUtils;
-import com.example.myisamlicapplication.data.prayernotifications.RegisterPrayerTimesWorker;
+import com.example.myisamlicapplication.data.prayersnotification.AzanPrayersUtil;
+import com.example.myisamlicapplication.data.prayersnotification.RegisterPrayerTimesWorker;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
@@ -16,6 +16,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.work.ExistingPeriodicWorkPolicy;
 import androidx.work.PeriodicWorkRequest;
 import androidx.work.WorkManager;
 
@@ -52,8 +53,9 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-        AzanPrayerUtils.registerPrayers(getApplicationContext());
+        AzanPrayersUtil.registerPrayers(this);
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
