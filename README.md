@@ -13,7 +13,9 @@
 * Room database (for Quarn data persistence)
 * Retrofit (for prayer azan API requests)
 * Android navigation component
-* Json to Gson serialization 
+* Json to Gson serialization
+* Work Manager
+* Notifications Manager
 
 **Screenshots**
 
