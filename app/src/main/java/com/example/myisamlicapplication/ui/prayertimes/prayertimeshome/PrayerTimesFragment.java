@@ -60,7 +60,7 @@ public class PrayerTimesFragment extends Fragment {
         datePicker = view.findViewById(R.id.date);
         currentCity = view.findViewById(R.id.cities);
         prayerTimingMethodsSpinner = view.findViewById(R.id.method);
-        prayerTimingMethodsSpinner.setSelection(viewModel.getCurrentPrayerCalculatingMethod().getValue());
+
 
     }
 
@@ -82,7 +82,7 @@ public class PrayerTimesFragment extends Fragment {
                                 setPrayerTimings(viewModel.getCurrentCity().getValue(),
                                         viewModel.getCurrentPrayerCalculatingMethod().getValue(),
                                         dayOfMonth,
-                                        monthOfYear+1,
+                                        monthOfYear,
                                         year);
                     }
                 });
@@ -100,7 +100,6 @@ public class PrayerTimesFragment extends Fragment {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (!firstTimeSpinner) {
                     viewModel.getCurrentPrayerCalculatingMethod().setValue(position);
-                    Log.d(TAG, "onItemSelected: " + position);
                 }
                 firstTimeSpinner = false;
             }
@@ -135,16 +134,20 @@ public class PrayerTimesFragment extends Fragment {
                         datePicker.getDayOfMonth(),
                         datePicker.getMonth(),
                         datePicker.getYear());
+            Log.d(TAG, "setupObservers: " + prayerMethod);
         });
         viewModel.getPrayerTimingMethods().observe(getViewLifecycleOwner(),
-                prayerTimingsMethods ->
-                        prayerTimingMethodsSpinner.
-                                setAdapter(new PrayerMethodsAdapter(requireContext(),
-                                        prayerTimingsMethods
-                                                .getMethods()
-                                                .stream().
-                                                sorted(Comparator.comparing(prayerTimingMethod -> prayerTimingMethod.id))
-                                                .collect(Collectors.toCollection(ArrayList::new)))));
+                prayerTimingsMethods -> {
+                    prayerTimingMethodsSpinner.
+                            setAdapter(new PrayerMethodsAdapter(requireContext(),
+                                    prayerTimingsMethods
+                                            .getMethods()
+                                            .stream().
+                                            sorted(Comparator.comparing(prayerTimingMethod -> prayerTimingMethod.id))
+                                            .collect(Collectors.toCollection(ArrayList::new))));
+                    Integer value = viewModel.getCurrentPrayerCalculatingMethod().getValue();
+                    prayerTimingMethodsSpinner.setSelection(value, true);
+                });
     }
 
 

@@ -13,6 +13,7 @@ import com.example.myisamlicapplication.data.networking.PrayersRetrofit;
 import com.example.myisamlicapplication.data.pojo.prayermethods.PrayerTimesMethodsResponse;
 import com.example.myisamlicapplication.data.pojo.prayermethods.PrayerTimingMethods;
 import com.example.myisamlicapplication.data.pojo.prayertimes.City;
+import com.example.myisamlicapplication.data.pojo.prayertimes.Datum;
 import com.example.myisamlicapplication.data.pojo.prayertimes.PrayerTimesResponse;
 import com.example.myisamlicapplication.data.pojo.prayertimes.PrayerTiming;
 import com.example.myisamlicapplication.data.pojo.prayertimes.Timings;
@@ -21,6 +22,7 @@ import com.example.myisamlicapplication.data.prayersnotification.PrayersPreferen
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -98,11 +100,13 @@ public class PrayerTimesViewModel extends AndroidViewModel {
         getPrayers(city.getCountry(),
                 city.getName(),
                 method,
-                month,
+                month + 1,
                 year).enqueue(new Callback<PrayerTimesResponse>() {
             @Override
             public void onResponse(Call<PrayerTimesResponse> call, Response<PrayerTimesResponse> response) {
-                Timings timings = response.body().getData().get(day - 1).getTimings();
+                List<Datum> data = Objects.requireNonNull(response.body()).getData();
+                if (data == null) return;
+                Timings timings = data.get(day - 1).getTimings();
                 ArrayList<PrayerTiming> prayers = convertFromTimings(timings);
                 prayerTimings.setValue(prayers);
                 preferences.setCity(city.getName());

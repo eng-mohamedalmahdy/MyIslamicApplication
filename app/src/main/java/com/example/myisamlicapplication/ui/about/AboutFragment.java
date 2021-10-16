@@ -1,4 +1,4 @@
-﻿package com.example.myisamlicapplication.ui.about;
+package com.example.myisamlicapplication.ui.about;
 
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;

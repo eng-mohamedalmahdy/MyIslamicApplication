@@ -18,6 +18,7 @@ public class AzanPrayersUtil {
                 .addTag("REGISTER_PRAYERS")
                 .build();
         WorkManager.getInstance(context.getApplicationContext())
-                .enqueueUniquePeriodicWork("REGISTER_PRAYERS", ExistingPeriodicWorkPolicy.REPLACE, registerRequest);
+                .enqueueUniquePeriodicWork("REGISTER_PRAYERS",
+                        ExistingPeriodicWorkPolicy.REPLACE, registerRequest);
     }
 }
