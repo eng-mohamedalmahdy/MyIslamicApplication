@@ -1,8 +1,10 @@
 package com.example.myisamlicapplication.ui.quran.quranindex;
 
+import androidx.lifecycle.ViewModel;
+
 import com.example.myisamlicapplication.data.utils.IndexTabsUtils;
 
-public class QuranIndexViewModel {
+public class QuranIndexViewModel extends ViewModel {
 
     private int[] tabsList;
 

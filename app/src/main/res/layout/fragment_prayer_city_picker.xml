@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/quran_yellow"
+    android:orientation="vertical"
+    tools:context=".ui.prayertimes.prayercitypicker.PrayerCityPickerFragment">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="@null"
+        android:padding="8dp"
+        app:cardBackgroundColor="@color/quran_green"
+        app:cardCornerRadius="25dp">
+
+        <EditText
+            android:id="@+id/search_cities"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:layout_marginStart="16dp"
+            android:background="@null"
+            android:drawableStart="@drawable/ic_baseline_search_24"
+            android:drawablePadding="12dp"
+            android:textDirection="rtl" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/cities_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/list_item_city" />
+
+
+</LinearLayout>

@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../../layout/custom_preview.xml" value="0.20364583333333333" />
         <entry key="../../../../layout/custom_preview.xml" value="0.17962962962962964" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1984375" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1984375" />
@@ -10,18 +11,20 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.12129629629629629" />
         <entry key="app/src/main/res/layout/app_bar_main.xml" value="0.1765625" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.1765625" />
+        <entry key="app/src/main/res/layout/fragment_about.xml" value="0.17708333333333334" />
         <entry key="app/src/main/res/layout/fragment_azkar_home.xml" value="0.18229166666666666" />
         <entry key="app/src/main/res/layout/fragment_azkar_list.xml" value="0.18229166666666666" />
         <entry key="app/src/main/res/layout/fragment_gallery.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_page_quran.xml" value="0.17552083333333332" />
-        <entry key="app/src/main/res/layout/fragment_prayer_times.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_prayer_city_picker.xml" value="0.17708333333333334" />
+        <entry key="app/src/main/res/layout/fragment_prayer_times.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_quran.xml" value="0.1625" />
         <entry key="app/src/main/res/layout/fragment_quran_container.xml" value="0.1765625" />
         <entry key="app/src/main/res/layout/fragment_quran_index.xml" value="0.17552083333333332" />
         <entry key="app/src/main/res/layout/fragment_quran_search.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_slideshow.xml" value="0.17552083333333332" />
         <entry key="app/src/main/res/layout/fragment_sora_list.xml" value="0.17552083333333332" />
-        <entry key="app/src/main/res/layout/list_item_city.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/list_item_city.xml" value="0.22" />
         <entry key="app/src/main/res/layout/list_item_prayer.xml" value="0.18229166666666666" />
         <entry key="app/src/main/res/layout/list_item_prayer_method.xml" value="0.1" />
         <entry key="app/src/main/res/layout/list_item_prayer_methods.xml" value="0.18229166666666666" />
@@ -30,7 +33,7 @@
         <entry key="app/src/main/res/layout/list_item_zekr.xml" value="0.18229166666666666" />
         <entry key="app/src/main/res/layout/nav_header_main.xml" value="0.18" />
         <entry key="app/src/main/res/layout/spinner_list_city.xml" value="0.25" />
-        <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.5" />
+        <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.33" />
         <entry key="app/src/main/res/menu/main.xml" value="0.15462962962962962" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_app_launcher.xml" value="0.15185185185185185" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1984375" />

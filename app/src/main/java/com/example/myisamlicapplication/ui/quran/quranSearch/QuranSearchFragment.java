@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -35,13 +36,13 @@ public class QuranSearchFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         adapter = new QuranSearchAdapter(this);
-        viewModel = new QuranSearchViewModel();
+        viewModel = new ViewModelProvider(this).get(QuranSearchViewModel.class);
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return LayoutInflater.from(getContext()).inflate(R.layout.fragment_quran_search,container,false);
+        return LayoutInflater.from(getContext()).inflate(R.layout.fragment_quran_search, container, false);
     }
 
     @Override
@@ -49,7 +50,7 @@ public class QuranSearchFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         searchEditText = view.findViewById(R.id.search_quran_edit_text);
         searchResultRecyclerView = view.findViewById(R.id.quran_search_result);
-        searchResultRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(),DividerItemDecoration.VERTICAL));
+        searchResultRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
         searchResultRecyclerView.setAdapter(adapter);
         searchEditText.addTextChangedListener(new TextWatcher() {
             @Override
@@ -59,7 +60,7 @@ public class QuranSearchFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                ArrayList<Aya> ayat = viewModel.getSearchResult(getContext(),s.toString());
+                ArrayList<Aya> ayat = viewModel.getSearchResult(s.toString());
                 adapter.setAyat(ayat);
             }
 

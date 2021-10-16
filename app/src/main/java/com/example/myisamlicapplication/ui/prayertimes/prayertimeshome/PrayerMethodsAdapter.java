@@ -15,6 +15,7 @@ import com.example.myisamlicapplication.data.pojo.prayermethods.PrayerTimingMeth
 import com.example.myisamlicapplication.data.pojo.prayertimes.City;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class PrayerMethodsAdapter extends ArrayAdapter<PrayerTimingMethod> {
     public PrayerMethodsAdapter(@NonNull Context context, ArrayList<PrayerTimingMethod> methods) {

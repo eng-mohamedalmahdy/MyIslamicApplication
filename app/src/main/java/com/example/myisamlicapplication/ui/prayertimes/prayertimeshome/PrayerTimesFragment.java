@@ -6,32 +6,41 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.DatePicker;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.myisamlicapplication.R;
+import com.example.myisamlicapplication.ui.prayertimes.PrayerTimesViewModel;
+import com.example.myisamlicapplication.ui.prayertimes.prayercitypicker.CitiesAdapter;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Comparator;
+import java.util.stream.Collectors;
 
 public class PrayerTimesFragment extends Fragment {
     private static final String TAG = "PrayerTimesFragment";
     private RecyclerView times;
     private DatePicker datePicker;
-    private Spinner citiesSpinner, prayerTimingMethodsSpinner;
+    private TextView currentCity;
+    private Spinner prayerTimingMethodsSpinner;
     private PrayerTimesListAdapter adapter;
     private PrayerTimesViewModel viewModel;
+    private boolean firstTimeSpinner = true;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        viewModel = new ViewModelProvider(this).get(PrayerTimesViewModel.class);
-
+        viewModel = new ViewModelProvider(requireActivity()).get(PrayerTimesViewModel.class);
         return inflater.inflate(R.layout.fragment_prayer_times, container, false);
     }
 
@@ -49,12 +58,13 @@ public class PrayerTimesFragment extends Fragment {
     private void initViews(View view) {
         times = view.findViewById(R.id.prayers_list);
         datePicker = view.findViewById(R.id.date);
-        citiesSpinner = view.findViewById(R.id.cities);
+        currentCity = view.findViewById(R.id.cities);
         prayerTimingMethodsSpinner = view.findViewById(R.id.method);
+        prayerTimingMethodsSpinner.setSelection(viewModel.getCurrentPrayerCalculatingMethod().getValue());
+
     }
 
     private void setupAdapters() {
-        citiesSpinner.setAdapter(new CitiesAdapter(requireContext(), viewModel.getCities(getContext())));
         adapter = new PrayerTimesListAdapter();
         times.setAdapter(adapter);
     }
@@ -69,10 +79,10 @@ public class PrayerTimesFragment extends Fragment {
                     if (viewModel.getCurrentCity().getValue() != null
                             && viewModel.getCurrentPrayerCalculatingMethod().getValue() != null) {
                         viewModel.
-                                setPrayerTimings(getContext(), viewModel.getCurrentCity().getValue(),
+                                setPrayerTimings(viewModel.getCurrentCity().getValue(),
                                         viewModel.getCurrentPrayerCalculatingMethod().getValue(),
                                         dayOfMonth,
-                                        monthOfYear,
+                                        monthOfYear+1,
                                         year);
                     }
                 });
@@ -80,10 +90,19 @@ public class PrayerTimesFragment extends Fragment {
     }
 
     private void initClickListeners() {
-        citiesSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        currentCity.setOnClickListener(v -> NavHostFragment
+                .findNavController(this)
+                .navigate(PrayerTimesFragmentDirections
+                        .actionPrayerTimesFragmentToPrayerCityPickerFragment()));
+
+        prayerTimingMethodsSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                viewModel.setCurrentCity(position, getContext());
+                if (!firstTimeSpinner) {
+                    viewModel.getCurrentPrayerCalculatingMethod().setValue(position);
+                    Log.d(TAG, "onItemSelected: " + position);
+                }
+                firstTimeSpinner = false;
             }
 
             @Override
@@ -99,16 +118,18 @@ public class PrayerTimesFragment extends Fragment {
 
         viewModel.getCurrentCity().observe(getViewLifecycleOwner(), city -> {
             if (viewModel.getCurrentPrayerCalculatingMethod().getValue() != null)
-                viewModel.setPrayerTimings(getContext(), city,
+                viewModel.setPrayerTimings(city,
                         viewModel.getCurrentPrayerCalculatingMethod().getValue(),
                         datePicker.getDayOfMonth(),
                         datePicker.getMonth(),
                         datePicker.getYear());
+
+            currentCity.setText((city.getName() + ", " + city.getCountry()));
         });
 
         viewModel.getCurrentPrayerCalculatingMethod().observe(getViewLifecycleOwner(), prayerMethod -> {
             if (viewModel.getCurrentCity().getValue() != null)
-                viewModel.setPrayerTimings(getContext(),
+                viewModel.setPrayerTimings(
                         viewModel.getCurrentCity().getValue(),
                         prayerMethod,
                         datePicker.getDayOfMonth(),
@@ -118,7 +139,12 @@ public class PrayerTimesFragment extends Fragment {
         viewModel.getPrayerTimingMethods().observe(getViewLifecycleOwner(),
                 prayerTimingsMethods ->
                         prayerTimingMethodsSpinner.
-                                setAdapter(new PrayerMethodsAdapter(requireContext(), prayerTimingsMethods.getMethods())));
+                                setAdapter(new PrayerMethodsAdapter(requireContext(),
+                                        prayerTimingsMethods
+                                                .getMethods()
+                                                .stream().
+                                                sorted(Comparator.comparing(prayerTimingMethod -> prayerTimingMethod.id))
+                                                .collect(Collectors.toCollection(ArrayList::new)))));
     }
 
 

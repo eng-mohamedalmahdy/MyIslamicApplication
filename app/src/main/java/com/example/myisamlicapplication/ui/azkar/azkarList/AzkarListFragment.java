@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -28,7 +29,7 @@ public class AzkarListFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         args = AzkarListFragmentArgs.fromBundle(requireArguments());
-        viewModel = new AzkarListViewModel();
+        viewModel = new ViewModelProvider(this).get(AzkarListViewModel.class);
         adapter = new AzkarListAdapter();
     }
 
@@ -45,6 +46,6 @@ public class AzkarListFragment extends Fragment {
         azkarListRecyclerView = view.findViewById(R.id.azkar_list);
         azkarListRecyclerView.setAdapter(adapter);
         azkarListRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapter.setAzkar(viewModel.getAzkar(getContext(),args.getAzkarType()));
+        adapter.setAzkar(viewModel.getAzkar(args.getAzkarType()));
     }
 }

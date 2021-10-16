@@ -1,10 +1,12 @@
-package com.example.myisamlicapplication.ui.prayertimes.prayertimeshome;
+package com.example.myisamlicapplication.ui.prayertimes;
 
+import android.app.Application;
 import android.content.Context;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
 import com.example.myisamlicapplication.data.citiesprovider.CitiesProvider;
 import com.example.myisamlicapplication.data.networking.PrayersRetrofit;
@@ -24,28 +26,29 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class PrayerTimesViewModel extends ViewModel {
+public class PrayerTimesViewModel extends AndroidViewModel {
 
 
     private static final String TAG = "PrayerViewModel";
 
-    private final MutableLiveData<City> currentCity;
-    private final MutableLiveData<ArrayList<PrayerTiming>> prayerTimings;
-    private final MutableLiveData<Integer> currentPrayerCalculatingMethod;
+    MutableLiveData<City> currentCity;
+    MutableLiveData<ArrayList<PrayerTiming>> prayerTimings;
+    MutableLiveData<Integer> currentPrayerCalculatingMethod;
+    MutableLiveData<PrayerTimingMethods> prayerTimingMethods;
+    PrayersPreferences preferences;
 
 
-    private final MutableLiveData<PrayerTimingMethods> prayerTimingMethods;
-
-
-    public PrayerTimesViewModel() {
+    public PrayerTimesViewModel(@NonNull Application application) {
+        super(application);
+        preferences = new PrayersPreferences(getApplication());
         prayerTimings = new MutableLiveData<>();
-        currentCity = new MutableLiveData<>();
-        currentPrayerCalculatingMethod = new MutableLiveData<>(5);
+        String country = preferences.getCountry();
+        currentCity = new MutableLiveData<>(new City(country, preferences.getCity()));
+        currentPrayerCalculatingMethod = new MutableLiveData<>(preferences.getMethod());
         prayerTimingMethods = new MutableLiveData<>();
-
         setPrayerTimingMethods();
-
     }
+
 
     private Call<PrayerTimesMethodsResponse> getPrayerTimingsResponse() {
         return PrayersRetrofit.getAPI().getPrayerTimesMethods();
@@ -78,8 +81,8 @@ public class PrayerTimesViewModel extends ViewModel {
         return currentCity;
     }
 
-    public List<City> getCities(Context context) {
-        return CitiesProvider.getCities(context);
+    public List<City> getCities() {
+        return CitiesProvider.getCities(getApplication());
     }
 
     public MutableLiveData<Integer> getCurrentPrayerCalculatingMethod() {
@@ -91,7 +94,7 @@ public class PrayerTimesViewModel extends ViewModel {
         return prayerTimingMethods;
     }
 
-    public void setPrayerTimings(Context context, City city, int method, int day, int month, int year) {
+    public void setPrayerTimings(City city, int method, int day, int month, int year) {
         getPrayers(city.getCountry(),
                 city.getName(),
                 method,
@@ -102,11 +105,11 @@ public class PrayerTimesViewModel extends ViewModel {
                 Timings timings = response.body().getData().get(day - 1).getTimings();
                 ArrayList<PrayerTiming> prayers = convertFromTimings(timings);
                 prayerTimings.setValue(prayers);
-                PrayersPreferences preferences = new PrayersPreferences(context);
                 preferences.setCity(city.getName());
                 preferences.setCountry(city.getCountry());
                 preferences.setMethod(method);
-                AzanPrayersUtil.registerPrayers(context);
+                Log.d(TAG, "onResponse: " + preferences.getMethod());
+                AzanPrayersUtil.registerPrayers(getApplication());
             }
 
             @Override
@@ -133,8 +136,8 @@ public class PrayerTimesViewModel extends ViewModel {
         });
     }
 
-    public void setCurrentCity(int position, Context context) {
-        currentCity.setValue(getCities(context).get(position));
+    public void setCurrentCity(City city) {
+        currentCity.setValue(city);
     }
 
 }

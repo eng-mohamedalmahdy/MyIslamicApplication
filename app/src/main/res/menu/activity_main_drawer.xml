@@ -15,8 +15,14 @@
             android:title="@string/menu_azkar" />
         <item
             android:id="@+id/prayerTimesFragment"
-            android:icon="@drawable/ic_star"
+            android:icon="@drawable/ic_prayer"
             android:title="@string/menu_prayer_times" />
+
+        <item
+            android:id="@+id/aboutFragment"
+            android:icon="@drawable/ic_baseline_info_24"
+            android:title="@string/about"
+            />
 
 
     </group>

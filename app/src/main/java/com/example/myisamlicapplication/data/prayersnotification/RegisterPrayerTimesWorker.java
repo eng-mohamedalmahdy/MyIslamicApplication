@@ -2,6 +2,7 @@ package com.example.myisamlicapplication.data.prayersnotification;
 
 import android.content.Context;
 import android.icu.util.Calendar;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.work.Data;
@@ -10,11 +11,13 @@ import androidx.work.OneTimeWorkRequest;
 import androidx.work.WorkManager;
 import androidx.work.Worker;
 import androidx.work.WorkerParameters;
+
 import com.example.myisamlicapplication.data.networking.PrayersRetrofit;
 import com.example.myisamlicapplication.data.pojo.prayertimes.Datum;
 import com.example.myisamlicapplication.data.pojo.prayertimes.PrayerTimesResponse;
 import com.example.myisamlicapplication.data.pojo.prayertimes.PrayerTiming;
 import com.example.myisamlicapplication.data.pojo.prayertimes.Timings;
+
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.ParseException;
@@ -22,6 +25,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 import retrofit2.Response;
@@ -39,7 +43,7 @@ public class RegisterPrayerTimesWorker extends Worker {
             Calendar calendar = Calendar.getInstance();
             PrayersPreferences preferences = new PrayersPreferences(getApplicationContext());
             int year = calendar.get(Calendar.YEAR);
-            int month = calendar.get(Calendar.MONTH);
+            int month = calendar.get(Calendar.MONTH) + 1;
             String city = preferences.getCity();
             String country = preferences.getCountry();
             int method = preferences.getMethod();
@@ -86,10 +90,13 @@ public class RegisterPrayerTimesWorker extends Worker {
         DecimalFormat decimalFormat = new DecimalFormat("00");
         String time = prayerTiming.getPrayerTime().split(" ")[0];
         String prayerDate = "" + year + "/" + decimalFormat.format(month) + "/" + decimalFormat.format(day) + " " + time;
-        SimpleDateFormat format = new SimpleDateFormat(pattern);
+        SimpleDateFormat format = new SimpleDateFormat(pattern, Locale.getDefault());
+
         try {
             Date date = format.parse(prayerDate);
             long currentTime = System.currentTimeMillis();
+            Log.d("TAG", "calculatePrayerDelay: " + date.toString());
+            Log.d("TAG", "calculatePrayerDelay: " + Math.abs(date.getTime() - currentTime));
             return Math.abs(date.getTime() - currentTime);
         } catch (ParseException e) {
             e.printStackTrace();

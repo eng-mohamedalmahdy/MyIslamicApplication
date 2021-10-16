@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -41,10 +42,10 @@ public class IndexListFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        viewModel = new IndexListViewModel();
+        viewModel = new ViewModelProvider(this).get(IndexListViewModel.class);
         soraList = view.findViewById(R.id.sora_list);
-        soraList.addItemDecoration(new DividerItemDecoration(getContext(),DividerItemDecoration.VERTICAL));
-        soraList.setAdapter(new IndexListAdapter(viewModel.provideIndexList(getContext(),currentTab),this));
+        soraList.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
+        soraList.setAdapter(new IndexListAdapter(viewModel.provideIndexList(currentTab), this));
 
     }
 }

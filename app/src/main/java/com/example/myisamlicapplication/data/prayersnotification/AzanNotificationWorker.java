@@ -1,5 +1,6 @@
 package com.example.myisamlicapplication.data.prayersnotification;
 
+import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
@@ -39,12 +40,15 @@ public class AzanNotificationWorker extends Worker {
     private NotificationCompat.Builder createNotificationBuilder(String title, String content, Uri sound) {
         NotificationCompat.Builder notificationBuilder =
                 new NotificationCompat.Builder(getApplicationContext(), CHANNEL_ID);
+
         notificationBuilder
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentTitle(title)
-                .setContentText(content)
                 .setSound(sound)
+                .setDefaults(NotificationCompat.DEFAULT_SOUND)
+                .setContentText(content)
                 .setPriority(NotificationCompat.PRIORITY_HIGH);
+        
         return notificationBuilder;
 
     }
@@ -55,7 +59,7 @@ public class AzanNotificationWorker extends Worker {
             NotificationChannel notificationChannel = new NotificationChannel(
                     CHANNEL_ID,
                     CHANNEL_NAME,
-                    NotificationManager.IMPORTANCE_HIGH);
+                    NotificationManager.IMPORTANCE_DEFAULT);
 
 
             AudioAttributes audioAttributes = new AudioAttributes.Builder()
@@ -63,15 +67,14 @@ public class AzanNotificationWorker extends Worker {
                     .setUsage(AudioAttributes.USAGE_NOTIFICATION)
                     .build();
             notificationChannel.setSound(sound, audioAttributes);
-
             manager.createNotificationChannel(notificationChannel);
-
         }
     }
 
     @NonNull
     @Override
     public Result doWork() {
+
         Uri azanSound = Uri.parse("android.resource://" + getApplicationContext().getPackageName() + "/" + R.raw.azan);
         Data input = getInputData();
         String title = input.getString(AzanNotificationConstants.NOTIFICATION_TITLE_KEY);

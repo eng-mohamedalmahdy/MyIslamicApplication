@@ -5,9 +5,9 @@ import android.content.SharedPreferences;
 
 public class PrayersPreferences {
     private static final String FILE_NAME = "PRAYERS_PREF";
-    private static final String CITY_KEY = "PRAYERS_PREF";
-    private static final String COUNTRY_KEY = "PRAYERS_PREF";
-    private static final String METHOD_KEY = "PRAYERS_PREF";
+    private static final String CITY_KEY = "CITY_PREF";
+    private static final String COUNTRY_KEY = "COUNTRY_PREF";
+    private static final String METHOD_KEY = "METHOD_PREF";
     private final SharedPreferences preferences;
 
     public PrayersPreferences(Context context) {

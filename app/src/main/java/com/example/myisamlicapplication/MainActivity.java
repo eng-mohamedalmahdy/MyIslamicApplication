@@ -45,7 +45,8 @@ public class MainActivity extends AppCompatActivity {
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.quranIndexFragment,
                 R.id.azkarHomeFragment,
-                R.id.prayerTimesFragment)
+                R.id.prayerTimesFragment,
+                R.id.aboutFragment)
                 .setOpenableLayout(drawer)
                 .build();
 

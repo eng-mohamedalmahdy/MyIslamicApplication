@@ -7,6 +7,7 @@
     android:background="@color/quran_yellow">
 
     <LinearLayout
+        android:layout_marginTop="12dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -14,12 +15,12 @@
         android:orientation="vertical"
         tools:context=".ui.prayertimes.prayertimeshome.PrayerTimesFragment">
 
-        <Spinner
+        <TextView
+            android:textSize="18sp"
             android:id="@+id/cities"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            tools:listitem="@layout/list_item_city" />
+            android:layout_margin="16dp"/>
 
         <Spinner
             android:id="@+id/method"

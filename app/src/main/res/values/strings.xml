@@ -21,5 +21,9 @@
     <string name="azkar_list">قائمة الأذكار</string>
     <string name="azkar">الأذكار</string>
     <string name="menu_prayer_times">مواقيت الصلاة</string>
-    <string name="prayer_times" >مواقيت الصلاة</string>
+    <string name="prayer_times">مواقيت الصلاة</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="about">About</string>
+    <string name="about_app">This application was developed as an open source project \n\n source code can be found at https://github.com/eng-mohamedalmahdy/MyIsamlicApplication \n\n Quran pages downloaded from https://qurancomplex.gov.sa/en/techquran/dev/ \n\n prayer times calculated using https://aladhan.com/ API</string>
 </resources>

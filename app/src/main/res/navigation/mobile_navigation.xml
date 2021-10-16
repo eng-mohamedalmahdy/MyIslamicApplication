@@ -68,7 +68,22 @@
         android:id="@+id/prayerTimesFragment"
         android:name="com.example.myisamlicapplication.ui.prayertimes.prayertimeshome.PrayerTimesFragment"
         android:label="@string/prayer_times"
-        tools:layout="@layout/fragment_prayer_times" />
+        tools:layout="@layout/fragment_prayer_times" >
+        <action
+            android:id="@+id/action_prayerTimesFragment_to_prayerCityPickerFragment"
+            app:destination="@id/prayerCityPickerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/prayerCityPickerFragment"
+        android:name="com.example.myisamlicapplication.ui.prayertimes.prayercitypicker.PrayerCityPickerFragment"
+        android:label="fragment_prayer_city_picker"
+        tools:layout="@layout/fragment_prayer_city_picker" />
+
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.example.myisamlicapplication.ui.about.AboutFragment"
+        android:label="fragment_about"
+        tools:layout="@layout/fragment_about" />
 
 
 </navigation>

@@ -8,6 +8,11 @@ public class City {
     public City() {
     }
 
+    public City(String country, String name) {
+        this.country = country;
+        this.name = name;
+    }
+
     public City(String country, String name, double lat, double lng) {
         this.country = country;
         this.name = name;

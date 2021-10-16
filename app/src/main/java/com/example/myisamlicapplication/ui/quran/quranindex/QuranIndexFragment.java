@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -41,7 +42,7 @@ public class QuranIndexFragment extends Fragment {
         adapter = new QuranIndexPagerAdapter(this);
         pager.setAdapter(adapter);
 
-        viewModel = new QuranIndexViewModel();
+        viewModel = new ViewModelProvider(this).get(QuranIndexViewModel.class);
         new TabLayoutMediator(indexTabs, pager,
                 (tab, position) -> tab.setText(viewModel.getTabAt(position))
         ).attach();
