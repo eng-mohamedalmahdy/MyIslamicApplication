@@ -5,7 +5,6 @@
 * Quran
 * Prayer azan
 * Azkar 
-* Qibla finder
 
 **Libraries & technologies used**
 
