@@ -5,7 +5,6 @@
 * Quran
 * Prayer azan
 * Azkar 
-* Qibla finder
 
 **Libraries & technologies used**
 
@@ -33,3 +32,5 @@ Quran database: **https://qurancomplex.gov.sa/en/techquran/dev/**
   
   
 Prayers Azan API: **https://aladhan.com/** 
+
+Arabic live sessions for the app development recorded at : **https://drive.google.com/drive/folders/1BMIyXpqIakhmJD3AX_Zhpj0w1Y4iYBmJ**
