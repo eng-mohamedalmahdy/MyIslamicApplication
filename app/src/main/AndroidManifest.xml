@@ -2,15 +2,28 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.myisamlicapplication">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
-        android:usesCleartextTraffic="true"
+        android:name=".IslamicApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MyIsamlicApplication">
+        android:theme="@style/Theme.MyIsamlicApplication"
+        android:usesCleartextTraffic="true">
+        <receiver
+            android:name=".ui.widgets.AzkarPrayerWidgetWidget"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/azkar_prayer_widget_widget_info" />
+        </receiver>
 
         <activity
             android:name=".MainActivity"

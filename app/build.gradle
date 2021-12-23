@@ -18,6 +18,7 @@ android {
 
     buildTypes {
         release {
+            crunchPngs false // or true
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -29,6 +30,7 @@ android {
     buildFeatures {
         viewBinding true
     }
+    aaptOptions { cruncherEnabled = false }
 }
 
 dependencies {

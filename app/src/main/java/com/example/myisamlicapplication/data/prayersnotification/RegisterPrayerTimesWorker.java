@@ -59,20 +59,23 @@ public class RegisterPrayerTimesWorker extends Worker {
                     prayers.forEach(prayerTiming -> {
 
                         String prayerTag = "" + year + "/" + month + "/" + day + " " + prayerTiming.getPrayerName();
-                        Data input = new Data.Builder()
-                                .putString(AzanNotificationConstants.NOTIFICATION_TITLE_KEY, prayerTiming.getPrayerName())
-                                .putString(AzanNotificationConstants.NOTIFICATION_CONTENT_KEY, "حي على الصلاة")
-                                .build();
+                        long delay = calculatePrayerDelay(year, month, day, prayerTiming);
+                        if (delay > 0) {
+                            Data input = new Data.Builder()
+                                    .putString(AzanNotificationConstants.NOTIFICATION_TITLE_KEY, prayerTiming.getPrayerName())
+                                    .putString(AzanNotificationConstants.NOTIFICATION_CONTENT_KEY, "حي على الصلاة")
+                                    .build();
 
-                        OneTimeWorkRequest registerPrayerRequest = new OneTimeWorkRequest
-                                .Builder(AzanNotificationWorker.class)
-                                .addTag(prayerTag)
-                                .setInitialDelay(calculatePrayerDelay(year, month, day, prayerTiming), TimeUnit.MILLISECONDS)
-                                .setInputData(input)
-                                .build();
+                            OneTimeWorkRequest registerPrayerRequest = new OneTimeWorkRequest
+                                    .Builder(AzanNotificationWorker.class)
+                                    .addTag(prayerTag)
+                                    .setInitialDelay(delay, TimeUnit.MILLISECONDS)
+                                    .setInputData(input)
+                                    .build();
 
-                        WorkManager.getInstance(getApplicationContext())
-                                .enqueueUniqueWork(prayerTag, ExistingWorkPolicy.REPLACE, registerPrayerRequest);
+                            WorkManager.getInstance(getApplicationContext())
+                                    .enqueueUniqueWork(prayerTag, ExistingWorkPolicy.REPLACE, registerPrayerRequest);
+                        }
                     });
                 }
                 return Result.success();
@@ -96,8 +99,8 @@ public class RegisterPrayerTimesWorker extends Worker {
             Date date = format.parse(prayerDate);
             long currentTime = System.currentTimeMillis();
             Log.d("TAG", "calculatePrayerDelay: " + date.toString());
-            Log.d("TAG", "calculatePrayerDelay: " + Math.abs(date.getTime() - currentTime));
-            return Math.abs(date.getTime() - currentTime);
+            Log.d("TAG", "calculatePrayerDelay: diff = " + (date.getTime() - currentTime) + " " + date.getTime());
+            return (date.getTime() - currentTime);
         } catch (ParseException e) {
             e.printStackTrace();
             return -1;

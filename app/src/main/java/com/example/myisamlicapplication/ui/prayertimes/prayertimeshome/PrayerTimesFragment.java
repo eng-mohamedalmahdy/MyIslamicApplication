@@ -1,14 +1,6 @@
 package com.example.myisamlicapplication.ui.prayertimes.prayertimeshome;
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.fragment.NavHostFragment;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,9 +10,15 @@ import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.myisamlicapplication.R;
 import com.example.myisamlicapplication.ui.prayertimes.PrayerTimesViewModel;
-import com.example.myisamlicapplication.ui.prayertimes.prayercitypicker.CitiesAdapter;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -142,8 +140,8 @@ public class PrayerTimesFragment extends Fragment {
                             setAdapter(new PrayerMethodsAdapter(requireContext(),
                                     prayerTimingsMethods
                                             .getMethods()
-                                            .stream().
-                                            sorted(Comparator.comparing(prayerTimingMethod -> prayerTimingMethod.id))
+                                            .stream()
+                                            .sorted(Comparator.comparing(prayerTimingMethod -> prayerTimingMethod.id))
                                             .collect(Collectors.toCollection(ArrayList::new))));
                     Integer value = viewModel.getCurrentPrayerCalculatingMethod().getValue();
                     prayerTimingMethodsSpinner.setSelection(value, true);
