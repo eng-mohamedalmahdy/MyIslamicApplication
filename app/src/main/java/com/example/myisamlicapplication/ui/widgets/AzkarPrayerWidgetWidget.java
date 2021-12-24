@@ -36,7 +36,7 @@ public class AzkarPrayerWidgetWidget extends AppWidgetProvider {
         Calendar calendar = Calendar.getInstance();
         PrayersPreferences preferences = new PrayersPreferences(context);
         int year = calendar.get(Calendar.YEAR);
-        int month = calendar.get(Calendar.MONTH);
+        int month = calendar.get(Calendar.MONTH)+1;
         int day = calendar.get(Calendar.DAY_OF_MONTH);
         String city = preferences.getCity();
         String country = preferences.getCountry();
@@ -52,10 +52,10 @@ public class AzkarPrayerWidgetWidget extends AppWidgetProvider {
                 if (data == null) return;
                 Timings timings = data.get(day - 1).getTimings();
                 views.setTextViewText(R.id.fajr, timings.getFajr().substring(0,5));
-                views.setTextViewText(R.id.dhuhr, timings.getDhuhr());
-                views.setTextViewText(R.id.asr, timings.getAsr());
-                views.setTextViewText(R.id.maghrib, timings.getMaghrib());
-                views.setTextViewText(R.id.isha, timings.getIsha());
+                views.setTextViewText(R.id.dhuhr, timings.getDhuhr().substring(0,5));
+                views.setTextViewText(R.id.asr, timings.getAsr().substring(0,5));
+                views.setTextViewText(R.id.maghrib, timings.getMaghrib().substring(0,5));
+                views.setTextViewText(R.id.isha, timings.getIsha().substring(0,5));
                 // Instruct the widget manager to update the widget
                 appWidgetManager.updateAppWidget(appWidgetId, views);
             }
