@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.myisamlicapplication"
-        minSdk 24
+        minSdk 18
         targetSdk 30
         versionCode 1
         versionName "1.0"
