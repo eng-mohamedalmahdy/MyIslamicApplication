@@ -12,6 +12,7 @@
         android:layout_weight="1">
 
         <ImageView
+            android:alpha=".25"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/fajr" />
@@ -27,12 +28,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_gravity="center"
-                android:layout_margin="2dp"
                 android:layout_weight=".5"
                 android:gravity="center"
                 android:text="@string/fajr"
                 android:textColor="@color/black"
-                android:textSize="18sp"
+                android:textSize="21sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -43,7 +43,7 @@
                 android:layout_weight=".5"
                 android:gravity="center"
                 android:textColor="@color/black"
-                android:textSize="18sp"
+                android:textSize="21sp"
                 android:textStyle="bold" />
 
         </LinearLayout>
@@ -58,9 +58,10 @@
         android:layout_weight="1">
 
         <ImageView
+            android:alpha=".25"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/duhur" />
+            android:src="@drawable/dhuhr" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -79,7 +80,7 @@
                 android:gravity="center"
                 android:text="@string/dhuhr"
                 android:textColor="@color/black"
-                android:textSize="18sp"
+                android:textSize="21sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -90,7 +91,7 @@
                 android:layout_weight=".5"
                 android:gravity="center"
                 android:textColor="@color/black"
-                android:textSize="18sp"
+                android:textSize="21sp"
                 android:textStyle="bold" />
 
         </LinearLayout>
@@ -104,6 +105,8 @@
 
 
         <ImageView
+            android:alpha=".25"
+
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/asr" />
@@ -125,7 +128,7 @@
                 android:gravity="center"
                 android:text="@string/asr"
                 android:textColor="@color/black"
-                android:textSize="18sp"
+                android:textSize="21sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -137,7 +140,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:textColor="@color/black"
-                android:textSize="18sp"
+                android:textSize="21sp"
                 android:textStyle="bold" />
 
         </LinearLayout>
@@ -151,6 +154,7 @@
 
 
         <ImageView
+            android:alpha=".25"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/asr" />
@@ -167,12 +171,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_gravity="center"
-                android:layout_margin="2dp"
                 android:layout_weight=".5"
                 android:gravity="center"
                 android:text="@string/maghrib"
                 android:textColor="@color/black"
-                android:textSize="18sp"
+                android:textSize="21sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -184,7 +187,7 @@
                 android:layout_weight=".5"
                 android:gravity="center"
                 android:textColor="@color/black"
-                android:textSize="18sp"
+                android:textSize="21sp"
                 android:textStyle="bold" />
 
         </LinearLayout>
@@ -198,6 +201,7 @@
 
 
         <ImageView
+            android:alpha=".25"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/asr" />
@@ -218,7 +222,7 @@
                 android:gravity="center"
                 android:text="@string/isha"
                 android:textColor="@color/black"
-                android:textSize="18sp"
+                android:textSize="21sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -230,7 +234,7 @@
                 android:layout_weight=".5"
                 android:gravity="center"
                 android:textColor="@color/black"
-                android:textSize="18sp"
+                android:textSize="21sp"
                 android:textStyle="bold" />
 
         </LinearLayout>

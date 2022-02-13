@@ -10,8 +10,8 @@
         <entry key="app/src/main/res/drawable/side_nav_bar.xml" value="0.15555555555555556" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.12129629629629629" />
         <entry key="app/src/main/res/layout/app_bar_main.xml" value="0.1765625" />
-        <entry key="app/src/main/res/layout/azkar_prayer_widget_widget_horizontal.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/azkar_prayer_widget_widget_vertical.xml" value="0.17435897435897435" />
+        <entry key="app/src/main/res/layout/azkar_prayer_widget_widget_horizontal.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/azkar_prayer_widget_widget_vertical.xml" value="0.21" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.1765625" />
         <entry key="app/src/main/res/layout/fragment_about.xml" value="0.17708333333333334" />
         <entry key="app/src/main/res/layout/fragment_azkar_home.xml" value="0.18229166666666666" />

@@ -1,7 +1,7 @@
 ﻿<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     style="@style/Widget.MyIsamlicApplication.AppWidget.Container"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical"
     android:theme="@style/Theme.MyIsamlicApplication.AppWidgetContainer">
 
@@ -11,30 +11,35 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="0dp"
+            android:layout_width="40dp"
             android:layout_height="40dp"
+            android:layout_margin="2dp"
             android:layout_weight=".3"
             android:scaleType="fitCenter"
             android:src="@drawable/fajr" />
 
         <TextView
+            android:textStyle="bold"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginStart="8dp"
             android:layout_weight="1"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:text="@string/fajr"
             android:textColor="@color/black"
-            android:textSize="18sp" />
+            android:textSize="14sp" />
 
         <TextView
+            android:textStyle="bold"
+
             android:id="@+id/fajr"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:textColor="@color/black"
-            android:textSize="18sp" />
+
+            android:textSize="14sp" />
 
     </LinearLayout>
 
@@ -44,30 +49,36 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="0dp"
+            android:layout_width="40dp"
             android:layout_height="40dp"
+            android:layout_margin="2dp"
             android:layout_weight=".3"
             android:scaleType="fitCenter"
-            android:src="@drawable/duhur" />
+            android:src="@drawable/dhuhr" />
 
         <TextView
-            android:layout_marginStart="8dp"
             android:layout_width="0dp"
+
             android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
             android:layout_weight="1"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:text="@string/dhuhr"
             android:textColor="@color/black"
-            android:textSize="18sp" />
+
+            android:textSize="14sp"            android:textStyle="bold" />
 
         <TextView
+            android:textStyle="bold"
+
             android:id="@+id/dhuhr"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:textColor="@color/black"
-            android:textSize="18sp" />
+
+            android:textSize="14sp"  />
 
     </LinearLayout>
 
@@ -77,30 +88,37 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="0dp"
+            android:layout_width="40dp"
             android:layout_height="40dp"
+            android:layout_margin="2dp"
             android:layout_weight=".3"
             android:scaleType="fitCenter"
             android:src="@drawable/asr" />
 
         <TextView
+            android:textStyle="bold"
+
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginStart="8dp"
             android:layout_weight="1"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:text="@string/asr"
             android:textColor="@color/black"
-            android:textSize="18sp" />
+
+            android:textSize="14sp" />
 
         <TextView
+            android:textStyle="bold"
+
             android:id="@+id/asr"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:textColor="@color/black"
-            android:textSize="18sp" />
+
+            android:textSize="14sp" />
 
     </LinearLayout>
 
@@ -110,31 +128,37 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="0dp"
+            android:layout_width="40dp"
             android:layout_height="40dp"
+            android:layout_margin="2dp"
             android:layout_weight=".3"
             android:scaleType="fitCenter"
             android:src="@drawable/maghrib" />
 
         <TextView
+            android:textStyle="bold"
+
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginStart="8dp"
             android:layout_weight="1"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:text="@string/maghrib"
             android:textColor="@color/black"
-            android:textSize="18sp" />
+
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/maghrib"
             android:layout_width="0dp"
+            android:textStyle="bold"
 
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:textColor="@color/black"
-            android:textSize="18sp" />
+
+            android:textSize="14sp" />
 
     </LinearLayout>
 
@@ -144,30 +168,37 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="0dp"
+            android:layout_width="40dp"
             android:layout_height="40dp"
+            android:layout_margin="2dp"
             android:layout_weight=".3"
             android:scaleType="fitCenter"
             android:src="@drawable/isha" />
 
         <TextView
+            android:textStyle="bold"
+
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginStart="8dp"
             android:layout_weight="1"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:text="@string/isha"
             android:textColor="@color/black"
-            android:textSize="18sp" />
+
+            android:textSize="14sp"  />
 
         <TextView
+            android:textStyle="bold"
+
             android:id="@+id/isha"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:textColor="@color/black"
-            android:textSize="18sp" />
+
+            android:textSize="14sp" />
 
     </LinearLayout>
 
