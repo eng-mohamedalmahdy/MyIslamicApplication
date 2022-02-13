@@ -3,8 +3,7 @@
     package="com.example.myisamlicapplication">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission  android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
-
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
 
     <application
         android:name=".IslamicApplication"
@@ -16,7 +15,7 @@
         android:theme="@style/Theme.MyIsamlicApplication"
         android:usesCleartextTraffic="true">
         <receiver
-            android:name=".ui.widgets.AzkarPrayerWidgetWidget"
+            android:name=".ui.widgets.AzkarPrayerWidgetWidgetHorizontal"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -24,7 +23,18 @@
 
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/azkar_prayer_widget_widget_info" />
+                android:resource="@xml/azkar_prayer_widget_widget_horizontal_info" />
+        </receiver>
+        <receiver
+            android:name=".ui.widgets.AzkarPrayerWidgetWidgetVertical"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/azkar_prayer_widget_widget_vertical_info" />
         </receiver>
 
         <activity

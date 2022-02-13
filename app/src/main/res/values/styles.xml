@@ -1,4 +1,4 @@
-﻿<resources>
+<resources>
 
     <style name="Widget.MyIsamlicApplication.AppWidget.Container" parent="android:Widget">
         <item name="android:id">@android:id/background</item>

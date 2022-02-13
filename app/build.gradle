@@ -4,12 +4,12 @@ plugins {
 }
 
 android {
-    compileSdk 30
+    compileSdk 31
 
     defaultConfig {
         applicationId "com.example.myisamlicapplication"
         minSdk 18
-        targetSdk 30
+        targetSdk 31
         versionCode 1
         versionName "1.0"
 
@@ -34,8 +34,8 @@ android {
 }
 
 dependencies {
-    def room_version = "2.3.0"
-    def work_version = "2.6.0"
+    def room_version = "2.4.1"
+    def work_version = "2.7.1"
 
     // (Java only)
     implementation "androidx.work:work-runtime:$work_version"
